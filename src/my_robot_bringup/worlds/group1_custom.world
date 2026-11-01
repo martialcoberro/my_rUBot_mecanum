@@ -52,7 +52,6 @@
                         </plane>
                     </geometry>
                 </collision>
-
                 <visual name="visual">
                     <geometry>
                         <plane>
@@ -79,7 +78,7 @@
                 </gz-gui>
                 <engine>ogre2</engine>
                 <scene>scene</scene>
-                <camera_pose>0 0 2.5 0 1.5708 0</camera_pose>
+                <camera_pose>0.7 0 5 0 1.5708 0</camera_pose>
             </plugin>
 
             <plugin filename="GzSceneManager" name="Scene Manager">
@@ -125,11 +124,9 @@
             <plugin filename="EntityTree" name="Entity tree"/>
         </gui>
 
-        <!-- ======================================================= -->
-        <!-- PARETS EXTERIORS (Perímetre tancat de 3.6m x 3.6m)      -->
-        <!-- ======================================================= -->
+        <!-- ================= PERÍMETRE (igual que la referència) ================= -->
 
-        <!-- Paret frontal (X = 2.5) -->
+        <!-- Paret est (x = 2.5) -->
         <include>
             <uri>model://wall120cm</uri>
             <name>wall120_1</name>
@@ -146,7 +143,7 @@
             <pose>2.5 -1.2 0.15 0 0 1.57</pose>
         </include>
 
-        <!-- Paret lateral dreta (Y = -1.8) -->
+        <!-- Paret sud (y = -1.8) -->
         <include>
             <uri>model://wall120cm</uri>
             <name>wall120_4</name>
@@ -163,7 +160,7 @@
             <pose>-0.5 -1.8 0.15 0 0 0</pose>
         </include>
 
-        <!-- Paret lateral esquerra (Y = 1.8) -->
+        <!-- Paret nord (y = 1.8) -->
         <include>
             <uri>model://wall120cm</uri>
             <name>wall120_5</name>
@@ -180,7 +177,7 @@
             <pose>-0.5 1.8 0.15 0 0 0</pose>
         </include>
 
-        <!-- Paret posterior (X = -1.1) -->
+        <!-- Paret oest (x = -1.1) -->
         <include>
             <uri>model://wall120cm</uri>
             <name>wall120_10</name>
@@ -197,63 +194,35 @@
             <pose>-1.1 -1.2 0.15 0 0 1.57</pose>
         </include>
 
-        <!-- ======================================================= -->
-        <!-- ELEMENTS INTERIORS PERSONALITZATS DEL GRUP 1            -->
-        <!-- ======================================================= -->
+        <!-- ================= INTERIOR DEL GRUP 1 ================= -->
 
-        <!-- Senyal de trànsit amb nom únic, al passadís nord -->
-        <include>
-            <uri>model://sign_left_ign</uri>
-            <name>sign_left_1</name>
-            <pose>0.0 1.4 0 0 0 1.57</pose>
-        </include>
-
-        <!-- Paret interior 1 (horitzontal a la part superior) -->
+        <!-- Mur en L, part horitzontal (nord-est) -->
         <include>
             <uri>model://wall90cm</uri>
             <name>wall90_1</name>
-            <pose>0.8 0.9 0.15 0 0 0</pose>
+            <pose>1.1 0.8 0.15 0 0 0</pose>
         </include>
 
-        <!-- Paret interior 2 (vertical formant una L amb wall90_1) -->
+        <!-- Mur en L, part vertical -->
         <include>
             <uri>model://wall90cm</uri>
             <name>wall90_2</name>
-            <pose>1.25 0.45 0.15 0 0 1.57</pose>
+            <pose>0.65 0.35 0.15 0 0 1.57</pose>
         </include>
 
-        <!-- Paret interior 3 (vertical, separada de la paret inferior i de wall90_2) -->
+        <!-- Mur recte (sud-est) -->
         <include>
             <uri>model://wall90cm</uri>
             <name>wall90_3</name>
-            <pose>0.6 -0.5 0.15 0 0 1.57</pose>
+            <pose>1.2 -0.9 0.15 0 0 0</pose>
         </include>
-        <!-- Caixa d'obstacle modificada (0.3 x 0.3 x 0.3) un quadrat més amunt -->
-        <model name="obstacle_box">
-            <static>true</static>
-            <pose>1.5 -1.3 0.15 0 0 0</pose>
-            <link name="link">
-                <collision name="collision">
-                    <geometry>
-                        <box>
-                            <size>0.3 0.3 0.3</size>
-                        </box>
-                    </geometry>
-                </collision>
-                <visual name="visual">
-                    <geometry>
-                        <box>
-                            <size>0.3 0.3 0.3</size>
-                        </box>
-                    </geometry>
-                    <material>
-                        <ambient>0.9 0.1 0.1 1</ambient>
-                        <diffuse>0.9 0.1 0.1 1</diffuse>
-                    </material>
-                </visual>
-            </link>
-        </model>
 
+        <!-- Senyal de trànsit (sud-oest) -->
+        <include>
+            <uri>model://sign_left_ign</uri>
+            <name>sign_left_1</name>
+            <pose>-0.4 -1.2 0 0 0 1.57</pose>
+        </include>
 
     </world>
 </sdf>
